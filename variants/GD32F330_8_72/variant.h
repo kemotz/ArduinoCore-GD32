@@ -109,8 +109,8 @@ extern "C" {
 #define SERIAL_HOWMANY          1
 
 #define USE_USART0_SERIAL	
-#define PIN_SERIAL_RX           PB7
-#define PIN_SERIAL_TX           PB6
+#define PIN_SERIAL_RX           PA10
+#define PIN_SERIAL_TX           PA9
 #define SERIAL0_RX          PIN_SERIAL_RX
 #define SERIAL0_TX          PIN_SERIAL_TX
 
