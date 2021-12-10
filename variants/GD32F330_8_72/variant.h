@@ -94,7 +94,7 @@ extern "C" {
 #define PIN_WIRE_SCL            PB8
 
 /* TIMER or PWM definitions */
-#define TIMER_TONE              TIMER5
+#define TIMER_TONE              TIMER13 //TIMER5 does not exist in f330
 #define TIMER_SERVO             TIMER6
 
 #define PWM0                    PA8
@@ -102,7 +102,7 @@ extern "C" {
 #define PWM2                    PA10
 #define PWM3                    PB11
 #define PWM4                    PA15
-#define PWM5                    PB15
+//#define PWM5                    PB15 //TIMER5 does not exist in f330
 
 /* USART definitions */
 
