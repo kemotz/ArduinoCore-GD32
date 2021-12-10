@@ -29,9 +29,6 @@ typedef enum {
     ADC_0 = (int)ADC
 } ADCName;
 
-typedef enum {
-    DAC_0 = (int)DAC,
-} DACName;
 
 typedef enum {
     UART_0 = (int)USART0,
@@ -57,8 +54,8 @@ typedef enum {
 typedef enum {
     PWM_0 = (int)TIMER0,
     PWM_1 = (int)TIMER1,
-    PWM_2 = (int)TIMER2,
-    PWM_5 = (int)TIMER5
+    PWM_2 = (int)TIMER2
+
     /* Timer 14..16 are also there, are these usable for PWM? */
 } PWMName;
 
