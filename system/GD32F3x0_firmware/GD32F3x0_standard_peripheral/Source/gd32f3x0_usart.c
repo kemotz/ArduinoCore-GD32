@@ -176,6 +176,23 @@ void usart_stop_bit_set(uint32_t usart_periph, uint32_t stblen)
 */
 void usart_enable(uint32_t usart_periph)
 {
+    // RS485-dir PA12
+    gpio_af_set(GPIOA, GPIO_AF_1, GPIO_PIN_12);
+    gpio_mode_set(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_12);
+    gpio_output_options_set(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_10MHZ, GPIO_PIN_12);
+    
+    USART_CTL2(usart_periph) &= ~(USART_CTL2_DEP);
+    USART_CTL2(usart_periph) |= (USART_CTL2_DEP & USART_DEP_HIGH);
+    
+    USART_CTL0(usart_periph) &= ~(USART_CTL0_DEA);
+    USART_CTL0(usart_periph) |= (USART_CTL0_DEA & ((4) << CTL0_DEA_OFFSET));
+
+    USART_CTL0(usart_periph) &= ~(USART_CTL0_DED);
+    USART_CTL0(usart_periph) |= (USART_CTL0_DED & ((2) << CTL0_DED_OFFSET));
+    
+    USART_CTL2(usart_periph) |= USART_CTL2_DEM;
+     // RS485-dir PA12
+     
     USART_CTL0(usart_periph) |= USART_CTL0_UEN;
 }
 

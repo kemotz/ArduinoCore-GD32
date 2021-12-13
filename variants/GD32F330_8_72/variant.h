@@ -58,7 +58,7 @@ extern "C" {
 #define PA9 23
 #define PA10 24
 #define PA11 25
-#define PA12 26
+//#define PA12 26 RS48-dir 
 #define PA13 27
 #define PA14 28
 #define PA15 29
@@ -90,8 +90,8 @@ extern "C" {
 #define PIN_SPI_SCK             PB13
 
 /* I2C definitions */
-#define PIN_WIRE_SDA            PB9
-#define PIN_WIRE_SCL            PB8
+#define PIN_WIRE_SDA            PB7
+#define PIN_WIRE_SCL            PB6
 
 /* TIMER or PWM definitions */
 #define TIMER_TONE              TIMER13 //TIMER5 does not exist in f330
