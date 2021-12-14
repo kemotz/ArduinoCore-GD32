@@ -418,7 +418,7 @@ static void system_clock_72m_irc48m(void)
     \param[out] none
     \retval     none
 */
-static void system_clock_84m_hxtal(void)
+static void system_clock_84m_hxtal(void) //24mhz xtal
 {
     uint32_t timeout = 0U;
     uint32_t stab_flag = 0U;
@@ -442,13 +442,16 @@ static void system_clock_84m_hxtal(void)
     RCU_CFG0 |= RCU_APB2_CKAHB_DIV2;
     /* APB1 = AHB/2 */
     RCU_CFG0 |= RCU_APB1_CKAHB_DIV2;
+    /* PLL = HXTAL(24) /2 * 7 = 84 MHz */   
 
-    /* PLL = HXTAL /2 * 21 = 84 MHz */
     RCU_CFG0 &= ~(RCU_CFG0_PLLSEL | RCU_CFG0_PLLMF | RCU_CFG0_PLLMF4 | RCU_CFG0_PLLPREDV);
     RCU_CFG1 &= ~(RCU_CFG1_PLLPRESEL | RCU_CFG1_PLLMF5 | RCU_CFG1_PREDV);
-    RCU_CFG0 |= (RCU_PLLSRC_HXTAL_IRC48M | (RCU_PLL_MUL21 & (~RCU_CFG1_PLLMF5)));
+   
+    RCU_CFG0 |= (RCU_PLLSRC_HXTAL_IRC48M | (RCU_PLL_MUL7 & (~RCU_CFG1_PLLMF5)));
     RCU_CFG1 |= (RCU_PLLPRESEL_HXTAL | RCU_PLL_PREDV2);
-    RCU_CFG1 |= (RCU_PLL_MUL21 & RCU_CFG1_PLLMF5);
+    RCU_CFG1 |= (RCU_PLL_MUL7 & RCU_CFG1_PLLMF5);
+
+
     /* enable PLL */
     RCU_CTL0 |= RCU_CTL0_PLLEN;
 
