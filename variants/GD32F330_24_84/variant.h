@@ -77,8 +77,8 @@ extern "C" {
 #define ANALOG_PINS_LAST        PB2
 
 /* LED definitions */
-#define LED_BUILTIN             PA1
-#define LED_GREEN               PA1
+#define LED_BUILTIN             PB5
+#define LED_GREEN               PB4
 
 /* user keys definitions */
 #define KEY0                    PA0
